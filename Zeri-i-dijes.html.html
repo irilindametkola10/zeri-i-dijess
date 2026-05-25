@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zëri i Dijes – Gjimnazi John F. Kennedy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #C0291D;
+    --dark-red: #8B1A10;
+    --navy: #1A2340;
+    --gold: #D4A017;
+    --ink: #1C1C1C;
+    --paper: #F5F0E8;
+    --cream: #FAF7F0;
+    --light-border: #D8CFBA;
+    --muted: #6B6355;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* HEADER MASTHEAD */
+  .masthead {
+    background: var(--cream);
+    border-bottom: 3px solid var(--ink);
+    text-align: center;
+    padding: 0;
+  }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 48px;
+    border-bottom: 1px solid var(--light-border);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .masthead-title {
+    padding: 24px 0 16px;
+    border-bottom: 2px solid var(--ink);
+    margin: 0 48px;
+  }
+
+  .masthead-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(56px, 10vw, 108px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .masthead-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--muted);
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  nav ul li a:hover {
+    background: var(--red);
+    color: #fff;
+  }
+
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  section { padding: 48px 0; border-bottom: 1px solid var(--light-border); }
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    border-top: 3px solid var(--red);
+    padding-top: 6px;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+
+  /* HERO / FRONT PAGE */
+  .hero {
+    padding: 40px 0 32px;
+    border-bottom: 3px double var(--ink);
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .hero-headline em {
+    color: var(--red);
+    font-style: italic;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .hero-body {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #333;
+  }
+
+  .hero-body p + p { margin-top: 12px; }
+
+  .hero-sidebar {
+    border-left: 3px solid var(--red);
+    padding-left: 20px;
+  }
+
+  .sidebar-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  /* ARTICLES GRID */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .article-card {
+    border-top: 3px solid var(--ink);
+    padding-top: 16px;
+  }
+
+  .article-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .article-card h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .article-card h3 a:hover { color: var(--red); }
+
+  .article-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .article-card .tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  /* FULL ARTICLE SECTIONS */
+  .article-full { max-width: 720px; }
+
+  .article-full h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .article-full p {
+    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+  }
+
+  .article-full .pullquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--navy);
+    border-left: 4px solid var(--gold);
+    padding: 16px 24px;
+    margin: 24px 0;
+    background: rgba(212,160,23,0.06);
+  }
+
+  /* TWO-COL LAYOUT */
+  .two-col {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .two-col-equal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  /* RULES LIST */
+  .rules-list {
+    list-style: none;
+    counter-reset: rule;
+  }
+
+  .rules-list li {
+    counter-increment: rule;
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--light-border);
+    font-size: 15px;
+    align-items: flex-start;
+  }
+
+  .rules-list li::before {
+    content: counter(rule, decimal-leading-zero);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--red);
+    min-width: 36px;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  /* QUIZ */
+  .quiz-wrap { max-width: 640px; }
+
+  .quiz-q {
+    background: var(--cream);
+    border: 1px solid var(--light-border);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+
+  .quiz-q p { font-weight: 600; margin-bottom: 12px; font-size: 15px; }
+
+  .quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+
+  .quiz-opts label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--light-border);
+    background: white;
+    transition: background 0.2s;
+    user-select: none;
+  }
+
+  .quiz-opts label:hover { background: #f0ebe0; }
+  .quiz-opts label.correct { background: #e8f5e9; border-color: #4caf50; color: #1b5e20; }
+  .quiz-opts label.wrong { background: #ffebee; border-color: #e53935; color: #7f0000; }
+
+  .quiz-opts input { display: none; }
+
+  .quiz-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-top: 16px;
+    display: none;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: var(--navy);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 16px;
+    transition: background 0.2s;
+  }
+
+  .btn:hover { background: var(--red); }
+  .btn-reset { background: transparent; color: var(--red); border: 2px solid var(--red); margin-left: 12px; }
+  .btn-reset:hover { background: var(--red); color: white; }
+
+  /* HOROSCOPE */
+  .horoscope-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .horo-card {
+    border: 1px solid var(--light-border);
+    border-top: 3px solid var(--navy);
+    padding: 16px;
+    background: var(--cream);
+    border-radius: 0 0 4px 4px;
+  }
+
+  .horo-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .horo-card .sign-icon {
+    font-size: 20px;
+  }
+
+  .horo-card p { font-size: 13px; line-height: 1.6; color: #555; }
+
+  /* EXCURSION */
+  .excursion-card {
+    background: var(--navy);
+    color: white;
+    padding: 32px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+
+  .excursion-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .excursion-card p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.88);
+  }
+
+  /* TALENTS */
+  .talent-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .talent-card {
+    border: 1px solid var(--light-border);
+    padding: 20px;
+    text-align: center;
+    background: white;
+  }
+
+  .talent-card .icon-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+  }
+
+  .talent-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .talent-card .role {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .talent-card p { font-size: 13px; color: #666; line-height: 1.55; }
+
+  /* POEMS */
+  .poem-box {
+    background: var(--cream);
+    border: 1px solid var(--light-border);
+    border-left: 4px solid var(--gold);
+    padding: 28px 32px;
+  }
+
+  .poem-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .poem-box .poem-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #444;
+    white-space: pre-line;
+  }
+
+  .poem-box .author {
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+
+  /* BULLYING SECTION */
+  .alert-banner {
+    background: var(--red);
+    color: white;
+    padding: 16px 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+  }
+
+  /* PSIKOLOGU */
+  .psiko-highlight {
+    background: var(--navy);
+    color: white;
+    padding: 20px 28px;
+    margin: 24px 0;
+    border-left: 4px solid var(--gold);
+  }
+
+  .psiko-highlight h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .psiko-highlight p { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.88); }
+
+  /* NEWS TICKER */
+  .news-ticker {
+    background: var(--red);
+    color: white;
+    padding: 10px 0;
+    overflow: hidden;
+  }
+
+  .ticker-inner {
+    display: flex;
+    gap: 64px;
+    white-space: nowrap;
+    animation: ticker 30s linear infinite;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .ticker-inner span::before { content: "★ "; opacity: 0.7; }
+
+  @keyframes ticker {
+    from { transform: translateX(100vw); }
+    to { transform: translateX(-100%); }
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+
+  footer strong { color: var(--gold); font-family: 'Playfair Display', serif; }
+
+  /* DECORATIVE DIVIDER */
+  .ornament {
+    text-align: center;
+    color: var(--red);
+    font-size: 20px;
+    margin: 24px 0;
+    letter-spacing: 8px;
+  }
+
+  /* MET GALA */
+  .met-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .met-card {
+    border-top: 3px solid var(--gold);
+    padding-top: 14px;
+  }
+
+  .met-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .met-card .highlight-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: white;
+    padding: 2px 8px;
+    margin-bottom: 8px;
+  }
+
+  .met-card p { font-size: 13px; color: #555; line-height: 1.6; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .masthead-top { display: none; }
+    .masthead-title { margin: 0 16px; }
+    .hero-grid, .two-col, .two-col-equal { grid-template-columns: 1fr; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .horoscope-grid { grid-template-columns: repeat(2, 1fr); }
+    .talent-cards { grid-template-columns: 1fr; }
+    .met-grid { grid-template-columns: 1fr; }
+    nav ul li a { padding: 10px 14px; font-size: 11px; }
+    .container { padding: 0 16px; }
+    section { padding: 32px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NEWS TICKER -->
+<div class="news-ticker">
+  <div class="ticker-inner">
+    <span>Ekipi i futbollit fitoi vendin e parë në turneun e shkollave</span>
+    <span>Nxënësit fituan çmime në konkursit kombëtar të gjuhës shqipe</span>
+    <span>Java e kulturës mblodhi aktivitete artistike dhe muzikore</span>
+    <span>Shkolla jonë mori pjesë në festivalin TFA26</span>
+    <span>Ekskursion i paharrueshëm në Dardhë dhe Prizren</span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-top">
+    <span>Maj 2026</span>
+    <span>Gjimnazi John F. Kennedy · Tiranë, Shqipëri</span>
+    <span>Botim vjetor shkollor</span>
+  </div>
+  <div class="masthead-title">
+    <h1>ZËRI I DIJES</h1>
+    <p class="masthead-subtitle">Formojmë mendje, ndërtojmë të ardhmen</p>
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <ul>
+    <li><a href="#arsimi">Arsimi</a></li>
+    <li><a href="#teknologjia">Teknologjia</a></li>
+    <li><a href="#psikologu">Psikologu</a></li>
+    <li><a href="#eskursionet">Eskursionet</a></li>
+    <li><a href="#festivali">Festivali</a></li>
+    <li><a href="#talentet">Talentet</a></li>
+    <li><a href="#letërsia">Letërsia</a></li>
+    <li><a href="#bullizmi">Bullizmi</a></li>
+    <li><a href="#sporti">Sporti</a></li>
+    <li><a href="#showbiz">Showbiz</a></li>
+    <li><a href="#horoskopi">Horoskopi</a></li>
+    <li><a href="#quiz">Lojërat</a></li>
+  </ul>
+</nav>
+
+<!-- HERO / FRONT PAGE -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="section-label">Kryeartikull</div>
+        <h2 class="hero-headline">Zëri i <em>së ardhmes,</em><br>fryma e dijes</h2>
+        <div class="hero-body">
+          <p>Gjimnazi "John Kennedy" është më shumë se një institucion arsimor; ai është një vend ku ndërtohen ëndrra, formohen karaktere dhe zhvillohen mendje të reja. Çdo ditë, nxënësit dhe mësuesit bashkëpunojnë për të krijuar një ambient të mbushur me dije, përkushtim dhe motivim.</p>
+          <p>Mësimi në gjimnazin "John Kennedy" nuk kufizohet vetëm në libra. Ai shtrihet përtej klasës, duke përfshirë projekte, diskutime dhe aktivitete që nxisin mendimin kritik dhe kreativitetin. Nxënësit janë në qendër të çdo aktiviteti, duke u bërë pjesë aktive e procesit të të nxënit.</p>
+          <p>Në një botë që ndryshon vazhdimisht, arsimi mbetet baza më e fortë për ndërtimin e së ardhmes. Gjimnazi "John Kennedy" është një shembull i përkushtimit ndaj dijes, edukimit dhe formimit të të rinjve të përgjegjshëm.</p>
+        </div>
+      </div>
+      <div class="hero-sidebar">
+        <div class="sidebar-quote">
+          "Shkolla është vendi ku dija takohet me ëndrrat, ku përkushtimi shndërrohet në sukses dhe ku të rinjtë ndërtojnë jo vetëm të ardhmen e tyre, por edhe të ardhmen e shoqërisë."
+        </div>
+        <br>
+        <div class="articles-grid" style="grid-template-columns: 1fr;">
+          <div class="article-card">
+            <div class="tag">Lajm</div>
+            <h3><a href="#eskursionet">Eskursion i paharrueshëm në Dardhë dhe Prizren</a></h3>
+            <p>Klasa kaloi një ditë plot emocione dhe aventura në Korçë-Dardhë, duke provuar skimet dhe shijuar natyrën.</p>
+          </div>
+          <div class="article-card">
+            <div class="tag">Aktivitete</div>
+            <h3><a href="#festivali">Shkolla jonë shkëlqeu në festivalin "TFA26"</a></h3>
+            <p>Nxënësit prezantuan talente muzikore dhe valle popullore me kostume tradicionale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARSIMI -->
+<section id="arsimi">
+  <div class="container">
+    <div class="section-label">Arsimi & Tendenca</div>
+    <div class="two-col">
+      <div class="article-full">
+        <h2>Tendencat e Arsimit: E ardhmja e të nxënit</h2>
+        <p>Në vitet e fundit, arsimi ka pësuar ndryshime të mëdha si rezultat i zhvillimit të teknologjisë dhe nevojës për metoda më bashkëkohore të mësimdhënies. Shkollat moderne synojnë jo vetëm transmetimin e njohurive, por edhe zhvillimin e mendimit kritik, kreativitetit dhe aftësive komunikuese tek nxënësit.</p>
+        <p>Në gjimnazin "John Kennedy", mësimi zhvillohet në mënyrë aktive dhe bashkëpunuese, duke i nxitur nxënësit të marrin pjesë, të shprehin idetë e tyre dhe të punojnë në grup. Roli i mësuesit është thelbësor — ai nuk është vetëm transmetues i dijes, por edhe udhëheqës, motivues dhe model.</p>
+        <div class="pullquote">
+          "Në një botë që ndryshon vazhdimisht, arsimi mbetet çelësi kryesor drejt suksesit dhe zhvillimit të shoqërisë."
+        </div>
+        <p>Përveç rezultateve akademike, shkolla i kushton rëndësi edhe aktiviteteve kulturore, sportive dhe sociale, të cilat ndikojnë në formimin e karakterit dhe vetëbesimit të të rinjve. Aktivitetet e ndryshme u japin nxënësve mundësinë të zbulojnë talentet e tyre dhe të ndërtojnë marrëdhënie të shëndetshme.</p>
+        <p>Bashkëpunimi mes nxënësve dhe mësuesve është element kyç. Kur në klasë ekziston respekti dhe komunikimi i hapur, nxënësit ndihen më të lirë për të bërë pyetje, për të ndarë mendimet e tyre dhe për të marrë pjesë aktivisht në diskutime.</p>
+      </div>
+      <div>
+        <div class="ornament">✦ ✦ ✦</div>
+        <div class="psiko-highlight">
+          <h4>Disiplina në shkollë</h4>
+          <p>Disiplina është një nga elementët më të rëndësishëm në jetën shkollore. Respektimi i rregullave, orarit dhe përgjegjësive ndihmon që procesi mësimor të zhvillohet në mënyrë efektive dhe nxënësit të arrijnë rezultate më të mira. Ajo i mëson nxënësit të jenë të përgjegjshëm, korrektë dhe të organizuar.</p>
+        </div>
+        <br>
+        <div style="border: 1px solid var(--light-border); padding: 20px; background: white;">
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); margin-bottom: 12px;">Burime për klasën</div>
+          <ul style="list-style: none; font-size: 14px; line-height: 2;">
+            <li>📚 Libra shkollorë dhe enciklopedi</li>
+            <li>💻 Platforma dixhitale dhe projektorë</li>
+            <li>🔬 Laboratorë dhe materiale didaktike</li>
+            <li>🌐 Interneti dhe kërkimet online</li>
+            <li>🤝 Puna në grup dhe projekte</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEKNOLOGJIA -->
+<section id="teknologjia" style="background: white;">
+  <div class="container">
+    <div class="section-label">Teknologjia në Arsim</div>
+    <h2 style="font-family:'Playfair Display',serif; font-size:32px; color:var(--navy); margin-bottom:24px;">Teknologjia në klasat moderne</h2>
+    <div class="two-col">
+      <div class="article-full">
+        <p>Në shkollën "John Kennedy" teknologjia është bërë pjesë e pandashme e procesit mësimor. Përdorimi i kompjuterëve, projektorëve interaktivë dhe platformave dixhitale i ndihmon mësuesit të zhvillojnë mësime më interesante dhe më efektive.</p>
+        <p>Nxënësit kanë mundësinë të kërkojnë informacione, të punojnë në projekte, të krijojnë prezantime dhe të bashkëpunojnë online. Kjo i bën ata më aktive, më kreative dhe më të përgatitur për sfidat e së ardhmes.</p>
+        <p>Teknologjia nuk zëvendëson mësuesin, por e mbështet atë në krijimin e një ambienti modern, ku nxënësit mësojnë me dëshirë dhe zhvillojnë aftësi që do t'u nevojiten gjatë gjithë jetës.</p>
+        <p>Projektet digjitale, prezantimet, kërkimet online dhe aktivitetet interaktive e bëjnë procesin mësimor më interesant dhe më efektiv. Arsimi modern kërkon metoda të reja mësimdhënieje që vendosin nxënësin në qendër të procesit mësimor.</p>
+      </div>
+      <div>
+        <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px;">Tre shtyllat kryesore</div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div style="border-left: 4px solid var(--red); padding-left: 16px;">
+            <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--navy); margin-bottom:4px;">Mësim Interaktiv</div>
+            <p style="font-size:14px; color:#555;">Diskutime, punë në grup dhe aktivitete kreative që bëjnë orët mësimore tërheqëse për nxënësit.</p>
+          </div>
+          <div style="border-left: 4px solid var(--gold); padding-left: 16px;">
+            <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--navy); margin-bottom:4px;">Bashkëpunimi</div>
+            <p style="font-size:14px; color:#555;">Aktivitetet e përbashkëta dhe puna në grup forcojnë komunikimin, respektin dhe frymën e ekipit.</p>
+          </div>
+          <div style="border-left: 4px solid var(--navy); padding-left: 16px;">
+            <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--navy); margin-bottom:4px;">Zhvillimi Mësimor</div>
+            <p style="font-size:14px; color:#555;">Aktivitete edukative, konkurse dhe projekte të ndryshme për rezultate të larta akademike.</p>
+          </div>
+        </div>
+        <div style="margin-top:20px; background:var(--navy); color:white; padding:16px 20px; font-family:'Playfair Display',serif; font-style:italic; font-size:15px; line-height:1.5; border-left: 4px solid var(--gold);">
+          "Teknologjia, bashkëpunimi dhe inovacioni po transformojnë arsimin modern dhe po krijojnë mundësi të reja për brezin e ri."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PSIKOLOGU -->
+<section id="psikologu">
+  <div class="container">
+    <div class="section-label">Psikologjia Shkollore</div>
+    <div class="two-col">
+      <div class="article-full">
+        <h2>Prania e psikologut në shkollë</h2>
+        <p>Prania e psikologut në shkollë është shumë e rëndësishme për mirëqenien emocionale dhe sociale të nxënësve. Psikologu ndihmon nxënësit të përballojnë stresin, ankthin, vështirësitë në komunikim dhe problemet personale që mund të ndikojnë në mësime dhe sjellje.</p>
+        <p>Psikologu bashkëpunon me mësuesit dhe prindërit për të kuptuar më mirë nevojat e nxënësve dhe për të gjetur mënyra të përshtatshme për t'i ndihmuar ata. Përmes bisedave, aktiviteteve dhe këshillimeve, ai ndikon në rritjen e vetëbesimit dhe zhvillimin emocional të të rinjve.</p>
+        <div class="pullquote">Psikologu luan gjithashtu një rol të rëndësishëm në identifikimin e hershëm të vështirësive të të nxënit dhe çrregullimeve të sjelljes.</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:22px; color:var(--navy); margin: 20px 0 12px;">Psikologia e Gjimnazit J.F.K. — Dorina Voci</h3>
+        <p>Në Gjimnazin "John F. Kennedy", prania e psikologes <strong>Dorina Voci</strong> është një mbështetje shumë e rëndësishme për të gjithë nxënësit. Ajo është gjithmonë e gatshme të dëgjojë dhe të ndihmojë për çdo problem, qoftë ai personal, emocional apo social.</p>
+        <p>Ajo na mbledh shpesh në grupe dhe krijon një ambient të sigurt ku ne ndihemi të lirë të shprehim mendimet tona pa frikë dhe pa paragjykim. Tematike si parandalimi i lëndëve narkotike, edukimi për respektin, dhe mbështetja e personave me aftësi të kufizuara janë pjesë e rëndësishme e punës së saj.</p>
+      </div>
+      <div>
+        <div class="psiko-highlight">
+          <h4>Fushat e punës</h4>
+          <p>✔ Parandalimi i përdorimit të lëndëve narkotike<br>
+          ✔ Edukimi për respektin dhe përfshirjen sociale<br>
+          ✔ Zgjidhja e konflikteve mes nxënësve<br>
+          ✔ Ndërgjegjësimi kundër bullizmit<br>
+          ✔ Mbështetja emocionale individuale<br>
+          ✔ Komunikimi i hapur pa paragjykim</p>
+        </div>
+        <br>
+        <div style="background: white; border: 1px solid var(--light-border); padding: 20px;">
+          <div style="font-size: 12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:10px;">Pse nevojitet psikologu?</div>
+          <ul style="list-style:none; font-size:14px; line-height:2.2; color:#444;">
+            <li>🧠 Mbështetje emocionale</li>
+            <li>🤝 Parandalimi i bullizmit</li>
+            <li>📚 Identifikimi i vështirësive mësimore</li>
+            <li>💬 Komunikim i hapur me prindërit</li>
+            <li>🌟 Rritja e vetëbesimit</li>
+            <li>⚖️ Balanca emocionale në klasë</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RREGULLAT -->
+<section style="background: white;">
+  <div class="container">
+    <div class="section-label">Rregullat e Shkollës</div>
+    <div class="two-col">
+      <div>
+        <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px;">Rregullat e Gjimnazit "John F. Kennedy"</h2>
+        <ul class="rules-list">
+          <li>Respekto mësuesit, stafin dhe nxënësit e tjerë në çdo moment. Mbërrit në orar dhe merr pjesë rregullisht në mësim.</li>
+          <li>Uniforma ose veshja duhet të jetë e rregullt dhe e përshtatshme për ambientin shkollor.</li>
+          <li>Ndalohet përdorimi i telefonit gjatë orës së mësimit pa lejen e mësuesit.</li>
+          <li>Ruaj pastërtinë dhe ambientin e shkollës.</li>
+          <li>Dhuna fizike, bullizmi dhe gjuha fyese nuk lejohen.</li>
+          <li>Respekto pronën e shkollës dhe materialet mësimore.</li>
+          <li>Kopjimi dhe mashtrimi në teste apo detyra ndalohet.</li>
+          <li>Nxënësit duhet të sillen me përgjegjësi gjatë aktiviteteve jashtëshkollore.</li>
+          <li>Pirja e duhanit, alkooli dhe substancat e ndaluara janë rreptësisht të ndaluara.</li>
+          <li>Çdo nxënës duhet të mbajë sjellje të mirë dhe etikë komunikimi.</li>
+          <li>Problemet ose konfliktet raportohen tek mësuesit ose drejtoria. Leja për mungesa justifikohet nga prindi.</li>
+          <li>Gjatë emergjencave, nxënësit duhet të ndjekin udhëzimet e stafit.</li>
+          <li>Bashkëpunimi dhe respekti reciprok janë baza e komunitetit të gjimnazit.</li>
+        </ul>
+      </div>
+      <div>
+        <div style="background:var(--navy); color:white; padding:32px; text-align:center;">
+          <div style="font-family:'Playfair Display',serif; font-size:48px; color:var(--gold);">JFK</div>
+          <div style="font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin: 8px 0 16px;">Gjimnazi John F. Kennedy</div>
+          <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:16px; color:rgba(255,255,255,0.88); line-height:1.6;">"Edukimi është pasaporta për të ardhmen, sepse e ardhmja i përket atyre që përgatiten sot."</div>
+        </div>
+        <br>
+        <div style="background:var(--paper); border:1px solid var(--light-border); padding:20px; font-size:14px; color:#555; line-height:1.8;">
+          <strong style="display:block; margin-bottom:8px; color:var(--ink);">Bashkëpunimi i vazhdueshëm</strong>
+          Mësuesit e shkollës punojnë çdo ditë për të krijuar një ambient pozitiv. Bashkëpunimi mes stafit pedagogjik, prindërve dhe nxënësve ka ndikuar në forcimin e rezultateve akademike dhe zhvillimin e aftësive komunikuese.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESKURSIONET -->
+<section id="eskursionet">
+  <div class="container">
+    <div class="section-label">Eskursionet</div>
+    <div class="two-col-equal">
+      <div>
+        <div class="excursion-card">
+          <h3>🏔 Eskursioni në Korçë–Dardhë</h3>
+          <p>Sapo mbërritëm, pamja na mahniti të gjithëve. Bora mbulonte gjithçka dhe vendi dukej si një peizazh dimëror magjik. Ajri i pastër, malet dhe atmosfera e bukur e bënin atë vend edhe më të veçantë.</p>
+        </div>
+        <p style="font-size:15px; color:#444; line-height:1.8;">U nisëm rreth orës 6:00 dhe edhe pse ishte shumë herët, askush nuk ndihej i lodhur. Të gjithë ishim të lumtur, plot energji dhe mezi prisnim të mbërrinim. Atmosfera në autobus ishte shumë e bukur — disa dëgjonin muzikë, të tjerë bisedonin apo bënin foto.</p>
+        <p style="font-size:15px; color:#444; line-height:1.8; margin-top:12px;">Një nga momentet më emocionuese ishte prova e skieve. Ishte hera e parë për shumë prej nesh — plot rrëzime qesharake, por askush nuk u dorëzua! Ky ekskursion ishte më shumë se një udhëtim; ishte një ditë plot emocione, aventura dhe kujtime të paharrueshme.</p>
+      </div>
+      <div>
+        <div class="excursion-card" style="background: var(--dark-red);">
+          <h3>🏰 Eskursioni në Prizren</h3>
+          <p>Kur arritëm në Prizren, qyteti na mahniti menjëherë me bukurinë dhe atmosferën e tij. Ngjituam deri tek Kalaja e Prizrenit ku pamja ishte mahnitëse — mund të shihnim gjithë qytetin.</p>
+        </div>
+        <p style="font-size:15px; color:#444; line-height:1.8;">Ditën e ekskursionit u zgjuam herët. Edhe pse ishte herët, askush nuk ndihej i lodhur sepse mezi prisnim të niseshim. Gjatë rrugës ndiheshin vetëm të qeshura dhe emocione të forta.</p>
+        <p style="font-size:15px; color:#444; line-height:1.8; margin-top:12px;">Ngjitja drejt kalasë kishte pak vështirësi, por kjo nuk na pengoi aspak. Gjatë rrugës bënim shaka dhe ndalonim herë pas here për të parë pamjen e qytetit nga lart. Ky ekskursion ishte një eksperiencë e paharrueshme — një ditë plot emocione dhe argëtim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FESTIVALI -->
+<section id="festivali" style="background: white;">
+  <div class="container">
+    <div class="section-label">Festivali TFA26</div>
+    <h2 style="font-family:'Playfair Display',serif; font-size:32px; color:var(--navy); margin-bottom:8px;">Shkolla jonë në festivalin "TFA26"</h2>
+    <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:var(--muted); margin-bottom:28px;">Viti i muzikës dhe energjisë rinore</p>
+    <div class="two-col">
+      <div>
+        <p style="font-size:16px; color:#333; line-height:1.8; margin-bottom:14px;">Edhe këtë vit, shkolla jonë pati kënaqësinë të bëhej pjesë e festivalit "TFA26", një aktivitet i mbushur me art, talent dhe emocione të veçanta. Ky festival mblodhi së bashku nxënës nga shkolla të ndryshme, të cilët prezantuan aftësitë e tyre në fusha të ndryshme artistike.</p>
+        <p style="font-size:16px; color:#333; line-height:1.8; margin-bottom:20px;">Nxënësit e shkollës sonë kishin punuar për një kohë të gjatë për këtë aktivitet dhe përgatitjet kishin qenë intensive. Mundi dhe përkushtimi u shpërblyen me një performancë shumë të bukur që u vlerësua nga të gjithë të pranishmit.</p>
+        <div class="two-col-equal" style="gap:20px;">
+          <div style="border-top:3px solid var(--gold); padding-top:14px;">
+            <div style="font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">🎵 Kënga</div>
+            <p style="font-size:14px; color:#555; line-height:1.6;">Me zërin e bukur, plot emocion dhe vetëbesim, nxënësja arriti të krijonte një atmosferë shumë të veçantë në sallë. Çdo notë dhe çdo fjalë e këngës përcolli emocion dhe pasion.</p>
+          </div>
+          <div style="border-top:3px solid var(--red); padding-top:14px;">
+            <div style="font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); margin-bottom:8px;">💃 Kërcimi popullor</div>
+            <p style="font-size:14px; color:#555; line-height:1.6;">Të veshur me kostume tradicionale shumë të bukura, nxënësit sollën në skenë kulturën shqiptare në mënyrën më të bukur. Lëvizjet e sinkronizuara dhe energjia bënë performancën të paharrueshme.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--navy); padding:28px; text-align:center; color:white; margin-bottom:16px;">
+          <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:12px;">Festivali</div>
+          <div style="font-family:'Playfair Display',serif; font-size:42px; font-weight:900; color:var(--gold); letter-spacing:3px;">TFA26</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.6); margin-top:8px; letter-spacing:0.1em;">STRUMENTE · KËNGË · KËRCIM</div>
+        </div>
+        <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:16px; color:var(--navy); border-left:4px solid var(--red); padding-left:16px; line-height:1.6;">
+          "Ky festival jo vetëm që na dha mundësinë të shfaqnim talentin tonë, por gjithashtu na bashkoi më shumë si shkollë dhe na bëri krenarë për punën dhe përkushtimin e nxënësve tanë."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TALENTET -->
+<section id="talentet">
+  <div class="container">
+    <div class="section-label">Talentet e Klasës</div>
+    <h2 style="font-family:'Playfair Display',serif; font-size:32px; color:var(--navy); margin-bottom:8px;">Nga fëmijë në profesionistë të ardhshëm</h2>
+    <p style="color:var(--muted); margin-bottom:32px; font-size:16px;">Çdo nxënës ka diçka të veçantë brenda vetes — sport, art, muzikë apo fusha të tjera.</p>
+    <div class="talent-cards">
+      <div class="talent-card">
+        <div class="icon-circle">🏀</div>
+        <h4>Islanda Gjabri</h4>
+        <div class="role">Basketbollistja</div>
+        <p>Me përkushtim, stërvitje dhe dëshirën për të arritur rezultate sa më të mira, Islanda ka fituar tre medalje. Basketbolli për të nuk është vetëm sport, por pasion.</p>
+      </div>
+      <div class="talent-card">
+        <div class="icon-circle">🎨</div>
+        <h4>Ana Koldashi</h4>
+        <div class="role">Artiste vizuale</div>
+        <p>Ana dallohet për aftësinë e saj në vizatim. Ajo krijon punime plot ngjyra, ide kreative dhe imagjinatë, duke shprehur emocionet dhe ëndrrat e saj përmes artit.</p>
+      </div>
+      <div class="talent-card">
+        <div class="icon-circle">🖼</div>
+        <h4>Alesia Dervishi</h4>
+        <div class="role">Piktore</div>
+        <p>Alesia tregon jo vetëm talent, por edhe përkushtim dhe dashuri për artin. Ka marrë pjesë në konkurse shkollore ku ka prezantuar punimet e saj me krenari.</p>
+      </div>
+      <div class="talent-card">
+        <div class="icon-circle">⚖️</div>
+        <h4>Ana Koldashi</h4>
+        <div class="role">Avokate e ardhshme</div>
+        <p>Ëndrra dhe ambicia për të studiuar drejtësinë dhe për të ndihmuar komunitetin.</p>
+      </div>
+      <div class="talent-card">
+        <div class="icon-circle">✈️</div>
+        <h4>Adriana Tanushi</h4>
+        <div class="role">Pilote e ardhshme</div>
+        <p>Me synime të mëdha dhe pasion për aviacionin, Adriana do të ngjitet drejt qiellit.</p>
+      </div>
+      <div class="talent-card">
+        <div class="icon-circle">👨‍🍳</div>
+        <h4>Ridion Burnazi</h4>
+        <div class="role">Shef kuzhine</div>
+        <p>Pasioni për gatimin dhe kreativiteti në kuzhinë e bëjnë Ridionin një talent të veçantë të klasës.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LETËRSIA -->
+<section id="letërsia" style="background: white;">
+  <div class="container">
+    <div class="section-label">Klubi i Letërsisë</div>
+    <h2 style="font-family:'Playfair Display',serif; font-size:32px; color:var(--navy); margin-bottom:28px;">Poezi nga nxënësit tanë</h2>
+    <div class="two-col-equal">
+      <div class="poem-box">
+        <h3>"Zëri i Pasionit"</h3>
+        <div class="poem-text">Dëshira më e madhe në këtë jetë për mua,
+është të bëj gjënë që më së shumti dua.
+Ta bëj këtë gjë me dëshirë më lumturon,
+Pasioni më ngroh shpirtin...çdo ditë më frymëzon.
+
+Kur e bën punën me dëshirë dhe pasion,
+lodhje nuk ndien, është thjesht iluzion.
+
+Ndiq pasionin tënd dhe kurrë MOS U DORËZO!
+Nëse dikush të thotë: "Ti nuk ia del dot!"
+Nise rrugën e qetë thjesht limitet e tij po thotë.
+
+Nga kjo botë një gjë duhet të dish:
+Nëse ndjek pasionin çdo ëndërr do të arrish.</div>
+        <div class="author">— Adelajda Ismalaj</div>
+      </div>
+      <div class="poem-box" style="border-left-color: var(--navy);">
+        <h3>"Thesari i Gjuhëve"</h3>
+        <div class="poem-text">Gjuhët tona të çmuara si thesar,
+Çdo fjalë dhe tingull peshkon tërë botën mbarë.
+Me to flasim, këndojmë dhe mësojmë,
+Të gjitha kombet më mirë ti kuptojmë.
+
+Gjuhët na bashkojnë, kanë shumë rëndësi,
+Na sjellin kulturë, mbartin histori.
+
+Gjuha është uniteti, që të gjithëve na bashkon,
+Lidhjet midis shteteve më tepër i forcon.
+
+Gjuhët na udhëheqin, imagjinatën ne na zgjojnë,
+Botën më mirë ta njohim e ta përjetojmë...</div>
+        <div class="author">— Adelajda Ismalaj</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BULLIZMI -->
+<section id="bullizmi">
+  <div class="container">
+    <div class="section-label">Çështje sociale</div>
+    <div class="alert-banner">Bullizmi në Gjirokastër — një problem që nuk duhet heshtur</div>
+    <div class="two-col">
+      <div class="article-full">
+        <p>Bullizmi është një nga problemet më shqetësuese që po prek të rinjtë në shkolla dhe në shoqëri. Kohët e fundit, kjo temë u rikthye në qendër të vëmendjes përmes episodit 14 të emisionit "GOATS", ku u trajtua një ngjarje tronditëse në qytetin e Gjirokastrës.</p>
+        <p>Bullizmi nuk është vetëm një tallje apo një koment i momentit. Ai lë pasoja të rënda emocionale dhe psikologjike tek personat që e përjetojnë. Shpesh viktimat ndihen të vetmuara, të frikësuara dhe humbin besimin tek vetja.</p>
+        <div class="pullquote">Fjalët kanë fuqi dhe mund të lënë plagë që zgjasin shumë gjatë në jetën e një personi.</div>
+        <p>Rrjetet sociale kanë ndikuar që bullizmi të përhapet edhe më shumë. Komentet fyese, talljet publike dhe videot që shpërndahen online mund të dëmtojnë rëndë një person. Shumë të rinj nuk e kuptojnë se një fjalë e thënë për shaka mund të lëndojë dikë për një kohë të gjatë.</p>
+        <p>Shoqëria, shkolla dhe familja kanë një rol të madh në luftën kundër bullizmit. Edukimi dhe ndërgjegjësimi janë hapat më të rëndësishëm për të parandaluar raste të tilla. Vetëm përmes bashkëpunimit dhe komunikimit mund të krijohet një ambient më i sigurt dhe më pozitiv për të gjithë.</p>
+        <p style="font-weight:600; color:var(--navy);">Mesazhi kryesor: askush nuk duhet të gjykohet apo ofendohet për pamjen, karakterin apo jetën personale. Çdo njeri meriton respekt dhe mbështetje.</p>
+      </div>
+      <div>
+        <div style="background: var(--paper); border: 1px solid var(--light-border); padding: 24px; margin-bottom:16px;">
+          <div style="font-size: 11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">Si të ndihmosh</div>
+          <ul style="list-style:none; font-size:14px; line-height:2.4; color:#444;">
+            <li>🗣 Fol nëse sheh bullizëm</li>
+            <li>🤝 Mbështeti personin e prekur</li>
+            <li>📢 Raporto tek mësuesit ose drejtoria</li>
+            <li>❤️ Trego empati dhe mirëkuptim</li>
+            <li>🚫 Mos shpërndaj video ose foto fyese</li>
+            <li>💬 Diskuto me psikologun e shkollës</li>
+          </ul>
+        </div>
+        <div style="background: var(--red); color:white; padding:20px; text-align:center;">
+          <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; margin-bottom:8px;">STOP BULLIZMI</div>
+          <div style="font-size:13px; opacity:0.88; line-height:1.6;">Respekti është baza e çdo marrëdhënieje të shëndetshme. Bullizmi duhet të ndalet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORTI -->
+<section id="sporti" style="background: white;">
+  <div class="container">
+    <div class="section-label">Sporti</div>
+    <div class="articles-grid">
+      <div class="article-card">
+        <div class="tag">⚽ Futbolli</div>
+        <h3>Sporti më i popullarizuar në botë</h3>
+        <p>Futbolli zhvillohet mes dy ekipeve me nga 11 lojtarë dhe qëllimi është shënimi i golave. Dy nga yjet më të mëdhenj të historisë janë Lionel Messi dhe Cristiano Ronaldo, të cilët kanë frymëzuar miliona të rinj.</p>
+      </div>
+      <div class="article-card">
+        <div class="tag">🏀 Basketbolli</div>
+        <h3>Sport dinamik i shpejtësisë dhe forcës</h3>
+        <p>Basketbolli kërkon shpejtësi, forcë dhe koordinim të lartë. Liga NBA në SHBA është më e famshmja. LeBron James spikaton si një nga yjet më të mëdhenj, i njohur për aftësitë fizike dhe lidershipin.</p>
+      </div>
+      <div class="article-card">
+        <div class="tag">🎾 Tenisi</div>
+        <h3>Elegancë dhe precizion në terren</h3>
+        <p>Tenisi kërkon përqendrim të madh, teknikë të saktë dhe qëndrueshmëri fizike. Novak Djokovic, Rafael Nadal dhe Carlos Alcaraz kanë dominuar sportin, duke fituar turne të shumta Grand Slam.</p>
+      </div>
+    </div>
+    <div style="margin-top: 24px; padding: 20px; background:var(--paper); border:1px solid var(--light-border); text-align:center;">
+      <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:var(--navy);">"Sporti mëson disiplinën, punën në grup dhe vendimmarrjen e shpejtë — vlera thelbësore për jetën."</div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWBIZ -->
+<section id="showbiz">
+  <div class="container">
+    <div class="section-label">Showbiz</div>
+    <div class="two-col">
+      <div>
+        <div class="section-label" style="color:var(--gold);">🎵 Muzikë shqiptare</div>
+        <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:16px;">Yll Limani nis turneun "Thirrëm Sot ose Nesër"</h2>
+        <p style="font-size:15px; color:#444; line-height:1.8; margin-bottom:14px;">Yll Limani ka tërhequr vëmendjen e publikut me njoftimin e turneut të tij më të ri muzikor. Posteri promovues u bë menjëherë viral në rrjetet sociale për stilin modern, ngjyrat e forta dhe paraqitjen elegante.</p>
+        <p style="font-size:15px; color:#444; line-height:1.8;">Yll Limani vazhdon të mbetet një nga artistët më të suksesshëm dhe më të dashur për publikun shqiptar. Këngët e tij romantike dhe stili unik muzikor kanë fituar zemrat e mijëra fansave.</p>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
+          <div style="display:flex; gap:16px; align-items:center; padding:12px 16px; background:white; border:1px solid var(--light-border);">
+            <div style="font-family:'Playfair Display',serif; font-size:24px; font-weight:700; color:var(--red); min-width:40px;">01</div>
+            <div><strong>Tiranë</strong> — 12 Qershor<br><small style="color:var(--muted);">Pista e Atletikës, Liqeni Artificial</small></div>
+          </div>
+          <div style="display:flex; gap:16px; align-items:center; padding:12px 16px; background:white; border:1px solid var(--light-border);">
+            <div style="font-family:'Playfair Display',serif; font-size:24px; font-weight:700; color:var(--red); min-width:40px;">02</div>
+            <div><strong>Shkup</strong> — 17 Korrik<br><small style="color:var(--muted);">ARM Stadium</small></div>
+          </div>
+          <div style="display:flex; gap:16px; align-items:center; padding:12px 16px; background:white; border:1px solid var(--light-border);">
+            <div style="font-family:'Playfair Display',serif; font-size:24px; font-weight:700; color:var(--red); min-width:40px;">03</div>
+            <div><strong>Prishtinë</strong> — 24 Korrik<br><small style="color:var(--muted);">Prishtina Mall Parking</small></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label" style="color:var(--gold);">👗 Moda botërore</div>
+        <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:16px;">Met Gala 2026 — "Fashion Is Art"</h2>
+        <p style="font-size:14px; color:#555; margin-bottom:16px;">Met Gala 2026 u mbajt të hënën e parë të majit në New York. Tema "Fashion Is Art" tërhoqi rreth 450 personalitete nga bota e artit, modës dhe sportit.</p>
+        <div class="met-grid" style="grid-template-columns: 1fr;">
+          <div class="met-card">
+            <div class="highlight-tag">Ikona</div>
+            <h4>Beyoncé</h4>
+            <p>Rikthimi i saj pas 10 vitesh mungesë. Veshi një fustan monumental nga Olivier Rousteing, i shoqëruar nga vajza e saj Blue Ivy.</p>
+          </div>
+          <div class="met-card">
+            <div class="highlight-tag" style="background:var(--navy);">Mbretëresha</div>
+            <h4>Rihanna</h4>
+            <p>U vlerësua si personazhi që i qëndroi më besnik konceptit të trupit si formë arti, me një krijim nga Maison Margiela.</p>
+          </div>
+          <div class="met-card">
+            <div class="highlight-tag" style="background:var(--muted);">Stiliste</div>
+            <h4>Zendaya</h4>
+            <p>Dominoi mbrëmjen me një fustan unik me forma tejet të strukturuara dhe skulpturore, duke qenë "e veshurit më mirë".</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOROSKOPI -->
+<section id="horoskopi" style="background: var(--navy);">
+  <div class="container">
+    <div style="color:var(--gold); font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; border-top:3px solid var(--gold); padding-top:6px; display:inline-block; margin-bottom:24px;">Horoskopi 2026</div>
+    <h2 style="font-family:'Playfair Display',serif; font-size:32px; color:white; margin-bottom:28px;">Çfarë sjell viti 2026 për shenjën tënde?</h2>
+    <div class="horoscope-grid">
+      <div class="horo-card" style="border-top-color:var(--red);">
+        <h4><span class="sign-icon">♈</span>Dashi</h4>
+        <p>Ndryshime dhe energji e re. Mundësi të rëndësishme në karrierë, sidomos verën. Kujdes me impulsivitetin në financa.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--gold);">
+        <h4><span class="sign-icon">♉</span>Demi</h4>
+        <p>Qetësi emocionale dhe fokus tek vetja. Marrëdhëniet familjare forcohen. Lajme të mira ekonomike.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--gold);">
+        <h4><span class="sign-icon">♊</span>Binjakët</h4>
+        <p>Vit plot komunikim dhe aventura. Sukses në projekte kreative. Kujdes me lodhjen mendore.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--red);">
+        <h4><span class="sign-icon">♋</span>Gaforrja</h4>
+        <p>Vit reflektimi dhe rritjeje personale. Ndryshime pozitive në punë dhe me më shumë përgjegjësi.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--gold);">
+        <h4><span class="sign-icon">♌</span>Luani</h4>
+        <p>Do të shkëlqesh! Energjia dhe karizma do të të ndihmojnë. Pasion dhe momente romantike.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--light-border);">
+        <h4><span class="sign-icon">♍</span>Virgjëresha</h4>
+        <p>Organizim dhe progres profesional. Vendime të sigurta dhe njerëz të sinqertë pranë vetes.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--gold);">
+        <h4><span class="sign-icon">♎</span>Peshorja</h4>
+        <p>Vit harmonie. Marrëdhëniet romantike marrin rëndësi. Balanca emocionale si çelës suksesi.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--red);">
+        <h4><span class="sign-icon">♏</span>Akrepi</h4>
+        <p>Vit intensiv dhe transformues. Forcë për gjëra të reja. Emocionet e forta dhe vendime serioze.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--gold);">
+        <h4><span class="sign-icon">♐</span>Shigjetari</h4>
+        <p>Aventura, udhëtime dhe energji pozitive. Oferta interesante në punë. Dashuri spontane.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--light-border);">
+        <h4><span class="sign-icon">♑</span>Bricjapi</h4>
+        <p>Vit i rëndësishëm për karrierën. Puna e bërë ndër vite jep rezultate. Stabilitet financiar.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--gold);">
+        <h4><span class="sign-icon">♒</span>Ujori</h4>
+        <p>Kreativitet dhe ide të reja. Frymëzim për të ndryshuar rutinën. Surpriza të bukura në dashuri.</p>
+      </div>
+      <div class="horo-card" style="border-top-color:var(--red);">
+        <h4><span class="sign-icon">♓</span>Peshqit</h4>
+        <p>Vit emocional dhe intuitiv. Mundësi për rritje profesionale. Kujdes me vendimet e nxituara.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" style="background: white;">
+  <div class="container">
+    <div class="section-label">Këndi i Lojrave</div>
+    <h2 style="font-family:'Playfair Display',serif; font-size:32px; color:var(--navy); margin-bottom:8px;">Mini Quiz — Testo dijet e tua!</h2>
+    <p style="color:var(--muted); margin-bottom:28px;">Zgjidhni përgjigjen e saktë për secilën pyetje.</p>
+    <div class="quiz-wrap" id="quiz-container">
+      <div class="quiz-q" data-answer="B">
+        <p>1. Cili është planeti më i madh në Sistemin Diellor?</p>
+        <div class="quiz-opts">
+          <label><input type="radio" name="q1" value="A">A. Marsi</label>
+          <label><input type="radio" name="q1" value="B">B. Jupiteri</label>
+          <label><input type="radio" name="q1" value="C">C. Venusi</label>
+        </div>
+      </div>
+      <div class="quiz-q" data-answer="A">
+        <p>2. Kush e shkroi veprën "Romeo dhe Zhulieta"?</p>
+        <div class="quiz-opts">
+          <label><input type="radio" name="q2" value="A">A. William Shakespeare</label>
+          <label><input type="radio" name="q2" value="B">B. Dante Alighieri</label>
+          <label><input type="radio" name="q2" value="C">C. Migjeni</label>
+        </div>
+      </div>
+      <div class="quiz-q" data-answer="C">
+        <p>3. Sa kontinente ka bota?</p>
+        <div class="quiz-opts">
+          <label><input type="radio" name="q3" value="A">A. 5</label>
+          <label><input type="radio" name="q3" value="B">B. 6</label>
+          <label><input type="radio" name="q3" value="C">C. 7</label>
+        </div>
+      </div>
+      <div class="quiz-q" data-answer="B">
+        <p>4. Cili është oqeani më i madh në Tokë?</p>
+        <div class="quiz-opts">
+          <label><input type="radio" name="q4" value="A">A. Oqeani Atlantik</label>
+          <label><input type="radio" name="q4" value="B">B. Oqeani Paqësor</label>
+          <label><input type="radio" name="q4" value="C">C. Oqeani Indian</label>
+        </div>
+      </div>
+      <div class="quiz-q" data-answer="A">
+        <p>5. Në cilin vit shpalli Shqipëria pavarësinë?</p>
+        <div class="quiz-opts">
+          <label><input type="radio" name="q5" value="A">A. 1912</label>
+          <label><input type="radio" name="q5" value="B">B. 1945</label>
+          <label><input type="radio" name="q5" value="C">C. 1920</label>
+        </div>
+      </div>
+      <div class="quiz-q" data-answer="B">
+        <p>6. Cila është kryeqyteti i Italisë?</p>
+        <div class="quiz-opts">
+          <label><input type="radio" name="q6" value="A">A. Milano</label>
+          <label><input type="radio" name="q6" value="B">B. Roma</label>
+          <label><input type="radio" name="q6" value="C">C. Napoli</label>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px;">
+        <button class="btn" onclick="checkQuiz()">Kontrollo Përgjigjet</button>
+        <button class="btn btn-reset" onclick="resetQuiz()">Nis Sërish</button>
+      </div>
+      <div class="quiz-score" id="quiz-score"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Zëri i Dijes</strong> · Gazeta Shkollore e Gjimnazit "John F. Kennedy"</p>
+  <p style="margin-top:8px; font-size:12px; opacity:0.6;">Maj 2026 · Tiranë, Shqipëri · Formojmë mendje, ndërtojmë të ardhmen</p>
+</footer>
+
+<script>
+function checkQuiz() {
+  const questions = document.querySelectorAll('.quiz-q');
+  let score = 0;
+  let answered = 0;
+
+  questions.forEach(function(q) {
+    const correct = q.dataset.answer;
+    const opts = q.querySelectorAll('.quiz-opts label');
+    const selected = q.querySelector('input:checked');
+
+    opts.forEach(function(label) {
+      label.classList.remove('correct', 'wrong');
+    });
+
+    opts.forEach(function(label) {
+      const val = label.querySelector('input').value;
+      if (val === correct) {
+        label.classList.add('correct');
+      }
+    });
+
+    if (selected) {
+      answered++;
+      if (selected.value === correct) {
+        score++;
+      } else {
+        selected.parentElement.classList.add('wrong');
+      }
+    }
+  });
+
+  const scoreEl = document.getElementById('quiz-score');
+  scoreEl.style.display = 'block';
+  if (answered < questions.length) {
+    scoreEl.textContent = 'Ju lutem zgjidhni të gjitha përgjigjet!';
+    scoreEl.style.color = '#c0291d';
+    scoreEl.style.fontSize = '18px';
+  } else {
+    const pct = Math.round((score / questions.length) * 100);
+    scoreEl.textContent = 'Rezultati juaj: ' + score + '/' + questions.length + ' (' + pct + '%)';
+    scoreEl.style.color = score >= 4 ? '#1b5e20' : '#c0291d';
+  }
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.quiz-q input').forEach(function(inp) {
+    inp.checked = false;
+  });
+  document.querySelectorAll('.quiz-opts label').forEach(function(l) {
+    l.classList.remove('correct', 'wrong');
+  });
+  const scoreEl = document.getElementById('quiz-score');
+  scoreEl.style.display = 'none';
+  scoreEl.textContent = '';
+}
+</script>
+
+</body>
+</html>
